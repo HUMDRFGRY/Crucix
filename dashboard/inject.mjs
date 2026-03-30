@@ -171,7 +171,29 @@ const RSS_SOURCE_FALLBACKS = {
   'SBS Australia': { lat: -35.2809, lon: 149.13, region: 'Australia' },
   'Indian Express': { lat: 28.6139, lon: 77.209, region: 'India' },
   'The Hindu': { lat: 13.0827, lon: 80.2707, region: 'India' },
-  'MercoPress': { lat: -34.9011, lon: -56.1645, region: 'South America' }
+  'MercoPress': { lat: -34.9011, lon: -56.1645, region: 'South America' },
+  'USNI News': { lat: 38.979, lon: -76.49, region: 'North America' },
+  'Breaking Defense': { lat: 38.9072, lon: -77.0369, region: 'North America' },
+  'Defense News': { lat: 38.9072, lon: -77.0369, region: 'North America' },
+  'Stars and Stripes': { lat: 38.9072, lon: -77.0369, region: 'North America' },
+  'Military.com': { lat: 38.9072, lon: -77.0369, region: 'North America' },
+  'Naval Today': { lat: 52.0705, lon: 4.3007, region: 'Europe' },
+  'Naval News': { lat: 48.8566, lon: 2.3522, region: 'Europe' },
+  'The Defense Post': { lat: 51.5074, lon: -0.1278, region: 'Europe' },
+  'The War Zone': { lat: 40.7128, lon: -74.006, region: 'North America' },
+  'C4ISRNET': { lat: 38.9072, lon: -77.0369, region: 'North America' },
+  'CISA': { lat: 38.895, lon: -77.0365, region: 'North America' },
+  'BleepingComputer': { lat: 40.7128, lon: -74.006, region: 'North America' },
+  'The Record': { lat: 42.3601, lon: -71.0589, region: 'North America' },
+  'The Cyber Express': { lat: 1.3521, lon: 103.8198, region: 'Asia' },
+  'Cybernews': { lat: 54.6872, lon: 25.2797, region: 'Europe' },
+  'HPCwire': { lat: 37.7749, lon: -122.4194, region: 'North America' },
+  'White House': { lat: 38.8977, lon: -77.0365, region: 'North America' },
+  'State Department': { lat: 38.8947, lon: -77.0486, region: 'North America' },
+  'GAO': { lat: 38.9072, lon: -77.0369, region: 'North America' },
+  'RAND': { lat: 34.0195, lon: -118.4912, region: 'North America' },
+  'Brookings': { lat: 38.9072, lon: -77.0369, region: 'North America' },
+  'Atlantic Council': { lat: 38.9072, lon: -77.0369, region: 'North America' }
 };
 const REGIONAL_NEWS_SOURCES = ['MercoPress', 'Indian Express', 'The Hindu', 'SBS Australia'];
 
@@ -203,6 +225,33 @@ export async function fetchAllNews() {
     ['https://www.thehindu.com/news/national/feeder/default.rss', 'The Hindu'],
     // South America
     ['https://en.mercopress.com/rss/latin-america', 'MercoPress'],
+    // Defense & military
+    ['https://news.usni.org/feed', 'USNI News'],
+    ['https://breakingdefense.com/feed/', 'Breaking Defense'],
+    ['https://www.defensenews.com/arc/outboundfeeds/rss/category/news/?outputType=xml', 'Defense News'],
+    ['https://www.stripes.com/arc/outboundfeeds/rss/?outputType=xml', 'Stars and Stripes'],
+    ['https://feeds.military.com/rss/feeds/homepage.xml', 'Military.com'],
+    ['https://www.navaltoday.com/feed/', 'Naval Today'],
+    ['https://www.navalnews.com/feed/', 'Naval News'],
+    ['https://www.thedefensepost.com/feed/', 'The Defense Post'],
+    ['https://www.thedrive.com/feeds/the-war-zone.xml', 'The War Zone'],
+    ['https://www.c4isrnet.com/arc/outboundfeeds/rss/?outputType=xml', 'C4ISRNET'],
+    // Government & institutions
+    ['https://www.whitehouse.gov/briefing-room/feed/', 'White House'],
+    ['https://www.state.gov/feed/', 'State Department'],
+    ['https://www.gao.gov/rss/whatsnew.xml', 'GAO'],
+    // Cybersecurity
+    ['https://www.cisa.gov/news-events.xml', 'CISA'],
+    ['https://www.bleepingcomputer.com/feed/', 'BleepingComputer'],
+    ['https://therecord.media/feed/', 'The Record'],
+    ['https://thecyberexpress.com/feed/', 'The Cyber Express'],
+    ['https://cybernews.com/feed/', 'Cybernews'],
+    // Think tanks & research
+    ['https://www.rand.org/rss.xml', 'RAND'],
+    ['https://www.brookings.edu/feed/', 'Brookings'],
+    ['https://www.atlanticcouncil.org/feed/', 'Atlantic Council'],
+    // Technology & industry
+    ['https://www.hpcwire.com/feed/', 'HPCwire'],
   ];
 
   const results = await Promise.allSettled(
